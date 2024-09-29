@@ -1,0 +1,159 @@
+// Game logic
+let score = 0;
+let level = 1;
+let subscribers = 0;
+let views = 0;
+let likes = 0;
+let comments = 0;
+let shares = 0;
+let reputation = 0;
+
+// Function to update score
+function updateScore() {
+    score += views * 0.1 + likes * 0.2 + comments * 0.3 + shares * 0.4;
+}
+
+// Function to level up
+function levelUp() {
+    if (score >= 1000) {
+        level++;
+        score = 0;
+    }
+}
+
+// Function to add subscribers
+function addSubscribers() {
+    subscribers++;
+}
+
+// Function to add views
+function addViews() {
+    views++;
+}
+
+// Function to add likes
+function addLikes() {
+    likes++;
+}
+
+// Function to add comments
+function addComments() {
+    comments++;
+}
+
+// Function to add shares
+function addShares() {
+    shares++;
+}
+
+// Function to update reputation
+function updateReputation() {
+    reputation += views * 0.1 + likes * 0.2 + comments * 0.3 + shares * 0.4;
+}
+
+// Function to display stats
+function displayStats() {
+    console.log(`Score: ${score}`);
+    console.log(`Level: ${level}`);
+    console.log(`Subscribers: ${subscribers}`);
+    console.log(`Views: ${views}`);
+    console.log(`Likes: ${likes}`);
+    console.log(`Comments: ${comments}`);
+    console.log(`Shares: ${shares}`);
+    console.log(`Reputation: ${reputation}`);
+}
+
+// Social media system
+let socialMedia = {
+    followers: 0,
+    posts: 0,
+    engagement: 0
+};
+
+// Function to add followers
+function addFollowers() {
+    socialMedia.followers++;
+}
+
+// Function to add posts
+function addPosts() {
+    socialMedia.posts++;
+}
+
+// Function to add engagement
+function addEngagement() {
+    socialMedia.engagement++;
+}
+
+// Customization options
+let customization = {
+    theme: "default",
+    layout: "default",
+    equipment: "default"
+};
+
+// Function to change theme
+function changeTheme(theme) {
+    customization.theme = theme;
+}
+
+// Function to change layout
+function changeLayout(layout) {
+    customization.layout = layout;
+}
+
+// Function to change equipment
+function changeEquipment(equipment) {
+    customization.equipment = equipment;
+}
+
+// Mini-games
+let miniGames = {
+    blogPost: 0,
+    video: 0,
+    podcast: 0
+};
+
+// Function to play blog post mini-game
+function playBlogPost() {
+    miniGames.blogPost++;
+}
+
+// Function to play video mini-game
+function playVideo() {
+    miniGames.video++;
+}
+
+// Function to play podcast mini-game
+function playPodcast() {
+    miniGames.podcast++;
+}
+
+// Game loop
+setInterval(() => {
+    updateScore();
+    levelUp();
+    updateReputation();
+    displayStats();
+}, 1000);
+
+// Get user input
+let userInput = prompt("Enter your action (e.g. 'write blog post', 'respond to comments', etc.):");
+console.log(`You entered: ${userInput}`);
+
+// Handle user input
+if (userInput === "write blog post") {
+    playBlogPost();
+} else if (userInput === "respond to comments") {
+    addComments();
+} else if (userInput === "share post") {
+    addShares();
+} else if (userInput === "change theme") {
+    changeTheme("new theme");
+} else if (userInput === "change layout") {
+    changeLayout("new layout");
+} else if (userInput === "change equipment") {
+    changeEquipment("new equipment");
+} else {
+    console.log("Invalid input");
+}
